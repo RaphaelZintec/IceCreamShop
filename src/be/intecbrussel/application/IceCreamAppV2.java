@@ -8,43 +8,12 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class IceCreamAppV2 {
-    private static Scanner sc = new Scanner(System.in);
-    public static int icecreamChoice(){
-        System.out.println("Choose your ice creams: ");
-        System.out.println("Ice Rocket: 1");
-        System.out.println("Cones:      2");
-        System.out.println("Magnum:     3");
-        return sc.nextInt();
-    }
-    public static int ballsNumberChoice(){
-        System.out.println("Choose the number of balls: ");
-        return sc.nextInt();
-    }
-    public static int ballsFlavorChoice(){
-        System.out.println("Choose the flavor of balls: ");
-        System.out.println("STRAWBERRY:     1");
-        System.out.println("BANANA:         2");
-        System.out.println("CHOCOLATE:      3");
-        System.out.println("VANILLA:        4");
-        System.out.println("LEMON:          5");
-        System.out.println("STRACIATELLA:   6");
-        System.out.println("MOKKA:          7");
-        System.out.println("PISTACHE:       8");
-        return sc.nextInt();
-    }
-    public static int magnumTypeChoice(){
-        System.out.println("Choose the type of Magnum: ");
-        System.out.println("MILKCHOCOLATE:          1");
-        System.out.println("WHITECHOCOLATE:         2");
-        System.out.println("BLACKCHOCOLATE:         3");
-        System.out.println("ALPINENUTS:             4");
-        System.out.println("ROMANTICSTRAWBERRIES:   5");
-        return sc.nextInt();
-    }
 
     public static void main(String[] args) {
-        //Scanner
-        icecreamChoice();
+        //User choice
+        UserChoice userChoice = new UserChoice();
+        userChoice.icecreamChoice();
+        System.exit(1);
 
         //0. WELCOME MSG
         System.out.println("\n########## Start of Car Ice Cream Shop ##########\n");

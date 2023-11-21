@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8dd1084-dc3a-48a5-af71-3247b85e0262" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/be/intecbrussel/application/UserChoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/intecbrussel/application/IceCreamApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/intecbrussel/application/IceCreamApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/intecbrussel/application/IceCreamAppV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/intecbrussel/application/IceCreamAppV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/intecbrussel/eatables/Cone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/intecbrussel/eatables/Cone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/intecbrussel/sellers/IceCreamCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/intecbrussel/sellers/IceCreamCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/intecbrussel/sellers/IceCreamSalon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/intecbrussel/sellers/IceCreamSalon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/intecbrussel/sellers/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/intecbrussel/sellers/Stock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +42,7 @@
       <recent name="be.intecbrussel.application" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.IceCreamApp">
+  <component name="RunManager" selected="Application.IceCreamAppV2">
     <configuration name="IceCreamApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="be.intecbrussel.application.IceCreamApp" />
       <module name="IceCreamShop" />
@@ -75,8 +71,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.IceCreamApp" />
         <item itemvalue="Application.IceCreamAppV2" />
+        <item itemvalue="Application.IceCreamApp" />
       </list>
     </recent_temporary>
   </component>
