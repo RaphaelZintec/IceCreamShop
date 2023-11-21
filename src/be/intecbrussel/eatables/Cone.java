@@ -25,4 +25,8 @@ public class Cone implements Eatable{
         int numberOfBalls  = (int)Arrays.stream(balls).count();
         System.out.println("You are eating a cone with "+numberOfBalls+" balls with flavor "+typeOfBalls);
     }
+
+    public Flavor[] getBalls() {
+        return balls;
+    }
 }

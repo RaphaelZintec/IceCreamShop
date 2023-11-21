@@ -44,7 +44,7 @@ public class IceCreamSalon implements IceCreamSeller{
     public String toString() {
         return "IceCreamCar {" +
                 "\n\t" + priceList.toString() +
-                "\n\tprofit = " + totalProfit +
+                "\n\tProfit = " + totalProfit +
                 "\n}";
     }
 }

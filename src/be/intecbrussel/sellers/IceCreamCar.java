@@ -2,6 +2,9 @@ package be.intecbrussel.sellers;
 
 import be.intecbrussel.eatables.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class IceCreamCar implements IceCreamSeller{
     //ATTRIBUTES
     private PriceList priceList;
@@ -20,22 +23,28 @@ public class IceCreamCar implements IceCreamSeller{
     public Cone orderCone(Cone.Flavor[] balls){
         Cone cone = prepareCone(balls);
         if(cone != null){
-            profit += (priceList.getBallPrice() * 0.25) * balls.length;
+            profit += (priceList.getBallPrice() * 0.25) * cone.getBalls().length;
         }
         return cone;
     }
     private Cone prepareCone(Cone.Flavor[] balls) {
-        if (stock.getCones()>0 && stock.getBalls()>=balls.length) {
+        ArrayList<Cone.Flavor> ballsUpdate = new ArrayList<>();
+        if (stock.getCones()>0) {
+            Arrays.stream(balls).forEach(n-> {
+                    if(stock.getBalls().get(n) > 0){
+                        stock.getBalls().put(n, stock.getBalls().get(n)-1);
+                        ballsUpdate.add(n);
+                    }
+                    else {
+                        System.out.println("NO MORE "+n+" BALLS FOR YOUR ICE CREAM");
+                    }
+            }
+            );
             stock.setCones(stock.getCones()-1);
-            stock.setBalls(stock.getBalls()-balls.length);
-            return new Cone(balls);
+            return new Cone(ballsUpdate.stream().toArray(Cone.Flavor[]::new));
         }
-        else if(stock.getCones()==0 && stock.getBalls()<balls.length)
-            System.out.println("NO MORE CONES AND NOT ENOUGH BALLS FOR YOUR ICE CREAM");
-        else if(stock.getCones()==0)
+        else
             System.out.println("NO MORE CONES FOR YOUR ICE CREAM");
-        else if(stock.getBalls()<balls.length)
-            System.out.println("NOT ENOUGH BALLS FOR YOUR ICE CREAM");
         return null;
     }
 
@@ -67,12 +76,12 @@ public class IceCreamCar implements IceCreamSeller{
         return null;
     }
     private Magnum prepareMagnum(Magnum.MagnumType magnumType){
-        if (stock.getMagni()>0) {
-            stock.setMagni(stock.getMagni()-1);
+        if (stock.getMagni().get(magnumType)>0) {
+            stock.getMagni().put(magnumType, stock.getMagni().get(magnumType)-1);
             return new Magnum(magnumType);
         }
         else
-            System.out.println("NO MORE MAGNUM ICE CREAM");
+            System.out.println("NO MORE "+magnumType+" MAGNUM ICE CREAM");
         return null;
     }
 
@@ -86,7 +95,7 @@ public class IceCreamCar implements IceCreamSeller{
         return "IceCreamCar {" +
                 "\n\t" + priceList.toString() +
                 "\n\t" + stock +
-                "\n\tprofit = " + profit +
+                "\n\tProfit = " + profit +
                 "\n}";
     }
 }

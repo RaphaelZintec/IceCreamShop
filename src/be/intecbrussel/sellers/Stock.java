@@ -1,15 +1,18 @@
 package be.intecbrussel.sellers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Stock {
     //ATTRIBUTES
     private int iceRockets;
     private int cones;
-    private int balls;
-    private int magni;
+    private Map<Enum, Integer> magni = new HashMap<>();
+    private Map<Enum, Integer> balls = new HashMap<>();
 
     //CONSTRUCTORS
     public Stock(){}
-    public Stock(int iceRockets, int cones, int balls, int magni) {
+    public Stock(int iceRockets, int cones, Map<Enum, Integer> balls, Map<Enum, Integer> magni) {
         this.iceRockets = iceRockets;
         this.cones = cones;
         this.balls = balls;
@@ -33,20 +36,20 @@ public class Stock {
         this.cones = cones;
     }
 
-    public int getBalls() {
-        return balls;
-    }
-
-    public void setBalls(int balls) {
-        this.balls = balls;
-    }
-
-    public int getMagni() {
+    public Map<Enum, Integer> getMagni() {
         return magni;
     }
 
-    public void setMagni(int magni) {
+    public void setMagni(Map<Enum, Integer> magni) {
         this.magni = magni;
+    }
+
+    public Map<Enum, Integer> getBalls() {
+        return balls;
+    }
+
+    public void setBallsMap(Map<Enum, Integer> ballsMapballs) {
+        this.balls = balls;
     }
 
     @Override
@@ -54,8 +57,9 @@ public class Stock {
         return "Stock {" +
                 "iceRockets = " + iceRockets +
                 ", cones = " + cones +
-                ", balls = " + balls +
-                ", magni = " + magni +
-                '}';
+                '}'+
+                "\n\tStock Balls  = " + balls +
+                "\n\tStock Magnum = " + magni
+                ;
     }
 }
