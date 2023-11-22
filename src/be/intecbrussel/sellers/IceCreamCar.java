@@ -1,7 +1,6 @@
 package be.intecbrussel.sellers;
 
 import be.intecbrussel.eatables.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
