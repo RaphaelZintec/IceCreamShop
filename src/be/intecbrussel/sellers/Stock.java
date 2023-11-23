@@ -54,12 +54,10 @@ public class Stock {
 
     @Override
     public String toString() {
-        return "Stock {" +
-                "iceRockets = " + iceRockets +
-                ", cones = " + cones +
-                '}'+
-                "\n\tStock Balls  = " + balls +
-                "\n\tStock Magnum = " + magni
+        return  "\n\t\uD83D\uDCE6 Stock IceRockets  = " + iceRockets +
+                "\n\t\uD83D\uDCE6 Stock Cones       = " + cones +
+                "\n\t\uD83D\uDCE6 Stock Balls       = " + balls +
+                "\n\t\uD83D\uDCE6 Stock Magnum      = " + magni
                 ;
     }
 }

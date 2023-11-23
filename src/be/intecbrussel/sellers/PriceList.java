@@ -43,7 +43,7 @@ public class PriceList {
 
     @Override
     public String toString() {
-        return "PriceList {" +
+        return "Price List {" +
                 "ballPrice = " + ballPrice +
                 ", rocketPrice = " + rocketPrice +
                 ", magnumStandardPrice = " + magnumStandardPrice +

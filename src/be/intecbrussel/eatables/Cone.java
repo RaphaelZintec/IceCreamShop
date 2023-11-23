@@ -23,7 +23,7 @@ public class Cone implements Eatable{
     public void eat() {
         String typeOfBalls = Arrays.stream(balls).map(Enum::name).collect(Collectors.joining(" & "));
         int numberOfBalls  = (int)Arrays.stream(balls).count();
-        System.out.println("You are eating a cone with "+numberOfBalls+" balls with flavor "+typeOfBalls);
+        System.out.println("\uD83D\uDE0B You are eating a cone with "+numberOfBalls+" balls with flavor "+typeOfBalls+" \uD83C\uDF67");
     }
 
     public Flavor[] getBalls() {

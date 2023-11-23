@@ -1,11 +1,9 @@
-package be.intecbrussel.application;
+package be.intecbrussel.sellers;
 
 import be.intecbrussel.eatables.Cone;
 import be.intecbrussel.eatables.Magnum;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+
+import java.util.*;
 
 public class UserChoice {
 
@@ -18,12 +16,28 @@ public class UserChoice {
     private ArrayList<HashMap<Enum, Integer>> flavorMapArray        = new ArrayList<>();
     public Scanner sc = new Scanner(System.in);
     private int value = 0;
+    private static int icecreamCount = 0;
     public void icecreamChoice(){
-        System.out.println("\nChoose your ice cream: ");
-        System.out.println("Ice Rocket: 1");
-        System.out.println("Cones:      2");
-        System.out.println("Magnum:     3");
-        value = sc.nextInt();
+        System.out.println("\nChoose your ice cream n°"+(++icecreamCount));
+        System.out.println("1 Ice Rocket \uD83D\uDE80");
+        System.out.println("2 Cones \uD83C\uDF67");
+        System.out.println("3 Magnum \uD83C\uDF62");
+
+        do {
+            try {
+                value = sc.nextInt();
+                if (value<1 || value>3) {
+                    System.out.println("\uD83D\uDD34 Enter only a number between 1-3");
+                    continue;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("\uD83D\uDD34 Enter only a number between 1-3");
+                sc.nextLine();
+                continue;
+            }
+            break;
+        } while (true);
+
         switch (value){
             case 1: icerocketMap.put(TypeOfIceCreams.ICEROCKET, icerocketMap.get(TypeOfIceCreams.ICEROCKET)+1); break;
             case 2: ballsNumberChoice(); break;
@@ -32,8 +46,23 @@ public class UserChoice {
         sc.nextLine();
     }
     public void ballsNumberChoice(){
-        System.out.println("\nChoose the number of balls: ");
-        ballsFlavorChoice(sc.nextInt());
+        System.out.println("\nChoose the number of balls \uD83C\uDF67");
+        int ballsFlavorChoiceValue = 0;
+        do {
+            try {
+                ballsFlavorChoiceValue = sc.nextInt();
+                if (ballsFlavorChoiceValue<1 || ballsFlavorChoiceValue>5) {
+                    System.out.println("\uD83D\uDD34 Enter only a number between 1-5");
+                    continue;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("\uD83D\uDD34 Enter only a number between 1-5");
+                sc.nextLine();
+                continue;
+            }
+            break;
+        } while (true);
+        ballsFlavorChoice(ballsFlavorChoiceValue);
     }
     public void ballsFlavorChoice(int nmbrBall){
         value = 0;
@@ -41,7 +70,7 @@ public class UserChoice {
         flavorMapArray.add(new HashMap<Enum, Integer>(){{putAll(flavorMapTemplate);}});
         int indexFMA = flavorMapArray.size()-1;
         do {
-            System.out.println("\nChoose the flavor for ball #"+(++indexBall));
+            System.out.println("\nChoose the flavor for ball \uD83C\uDF68 #"+(++indexBall));
             System.out.println("STRAWBERRY:     1");
             System.out.println("BANANA:         2");
             System.out.println("CHOCOLATE:      3");
@@ -50,7 +79,23 @@ public class UserChoice {
             System.out.println("STRACIATELLA:   6");
             System.out.println("MOKKA:          7");
             System.out.println("PISTACHE:       8");
-            value = sc.nextInt();
+
+
+            do {
+                try {
+                    value = sc.nextInt();
+                    if (value<1 || value>8) {
+                        System.out.println("\uD83D\uDD34 Enter only a number between 1-8");
+                        continue;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("\uD83D\uDD34 Enter only a number between 1-8");
+                    sc.nextLine();
+                    continue;
+                }
+                break;
+            } while (true);
+
             switch (value) {
                 case 1: flavorMapArray.get(indexFMA).put(Cone.Flavor.STRAWBERRY, flavorMapArray.get(indexFMA).get(Cone.Flavor.STRAWBERRY)+1); break;
                 case 2: flavorMapArray.get(indexFMA).put(Cone.Flavor.BANANA, flavorMapArray.get(indexFMA).get(Cone.Flavor.BANANA)+1); break;
@@ -66,13 +111,28 @@ public class UserChoice {
     public void magnumTypeChoice(){
         value = 0;
         do {
-            System.out.println("\nChoose the type of Magnum: ");
+            System.out.println("\nChoose the type of Magnum \uD83C\uDF62");
             System.out.println("MILKCHOCOLATE:          1");
             System.out.println("WHITECHOCOLATE:         2");
             System.out.println("BLACKCHOCOLATE:         3");
             System.out.println("ALPINENUTS:             4");
             System.out.println("ROMANTICSTRAWBERRIES:   5");
-            value = sc.nextInt();
+
+            do {
+                try {
+                    value = sc.nextInt();
+                    if (value<1 || value>5) {
+                        System.out.println("\uD83D\uDD34 Enter only a number between 1-5");
+                        continue;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("\uD83D\uDD34 Enter only a number between 1-5");
+                    sc.nextLine();
+                    continue;
+                }
+                break;
+            } while (true);
+
             switch (value) {
                 case 1: magnumMap.put(Magnum.MagnumType.MILKCHOCOLATE, magnumMap.get(Magnum.MagnumType.MILKCHOCOLATE)+1); break;
                 case 2: magnumMap.put(Magnum.MagnumType.WHITECHOCOLATE, magnumMap.get(Magnum.MagnumType.WHITECHOCOLATE)+1); break;
@@ -97,10 +157,9 @@ public class UserChoice {
 
     @Override
     public String toString() {
-        return "UserChoice{" +
-                "\n\ticerocketMap=" + icerocketMap +
-                "\n\tflavorMapArray=" + flavorMapArray +
-                "\n\tmagnumMap=" + magnumMap +
-                '}';
+        return "\uD83D\uDC81 User choices" +
+                "\n\t\uD83D\uDE80 Ice Rocket   = " + icerocketMap +
+                "\n\t\uD83C\uDF67 Cones        = " + flavorMapArray +
+                "\n\t\uD83C\uDF62 Magnum       = " + magnumMap;
     }
 }

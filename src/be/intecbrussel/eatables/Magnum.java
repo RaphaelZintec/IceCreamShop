@@ -18,7 +18,7 @@ public class Magnum implements Eatable{
     //METHODS
     @Override
     public void eat() {
-        System.out.println("You are eating a "+type+" Magnum");
+        System.out.println("\uD83D\uDE0B You are eating a "+type+" Magnum \uD83C\uDF62");
     }
 
     public MagnumType getType() {

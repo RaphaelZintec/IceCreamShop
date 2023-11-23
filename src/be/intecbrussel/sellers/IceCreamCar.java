@@ -19,31 +19,33 @@ public class IceCreamCar implements IceCreamSeller{
 
     //METHODS
     @Override
-    public Cone orderCone(Cone.Flavor[] balls){
-        Cone cone = prepareCone(balls);
+    public Cone orderCone(Cone.Flavor[] flavorMapArray){
+        Cone cone = prepareCone(flavorMapArray);
         if(cone != null){
             profit += (priceList.getBallPrice() * 0.25) * cone.getBalls().length;
         }
         return cone;
     }
     private Cone prepareCone(Cone.Flavor[] balls) {
+
         ArrayList<Cone.Flavor> ballsUpdate = new ArrayList<>();
         if (stock.getCones()>0) {
-            Arrays.stream(balls).forEach(n-> {
-                    if(stock.getBalls().get(n) > 0){
-                        stock.getBalls().put(n, stock.getBalls().get(n)-1);
-                        ballsUpdate.add(n);
-                    }
-                    else {
-                        System.out.println("NO MORE "+n+" BALLS FOR YOUR ICE CREAM");
-                    }
+            Arrays.stream(balls).forEach(f->{
+                if(stock.getBalls().get(f) > 0){
+                    stock.getBalls().put(f, stock.getBalls().get(f)-1);
+                    ballsUpdate.add(f);
+                }
+                else {
+                    System.out.println("\uD83D\uDEAB NO MORE "+f+" BALLS \uD83C\uDF68 IN STOCK 📦");
+                }
+            });
+            if(!ballsUpdate.isEmpty()){
+                stock.setCones(stock.getCones() - 1);
+                return new Cone(ballsUpdate.stream().toArray(Cone.Flavor[]::new));
             }
-            );
-            stock.setCones(stock.getCones()-1);
-            return new Cone(ballsUpdate.stream().toArray(Cone.Flavor[]::new));
         }
         else
-            System.out.println("NO MORE CONES FOR YOUR ICE CREAM");
+            System.out.println("\uD83D\uDEAB NO MORE CONES \uD83C\uDF67 IN STOCK 📦");
         return null;
     }
 
@@ -61,7 +63,7 @@ public class IceCreamCar implements IceCreamSeller{
             return new IceRocket();
         }
         else
-            System.out.println("NO MORE ROCKET ICE CREAM");
+            System.out.println("\uD83D\uDEAB NO MORE ICE ROCKETS \uD83D\uDE80 IN STOCK \uD83D\uDCE6");
         return null;
     }
 
@@ -80,9 +82,10 @@ public class IceCreamCar implements IceCreamSeller{
             return new Magnum(magnumType);
         }
         else
-            System.out.println("NO MORE "+magnumType+" MAGNUM ICE CREAM");
+            System.out.println("\uD83D\uDEAB NO MORE "+magnumType+" MAGNUM \uD83C\uDF62 IN STOCK \uD83D\uDCE6");
         return null;
     }
+
 
     @Override
     public double getProfit() {
@@ -91,10 +94,9 @@ public class IceCreamCar implements IceCreamSeller{
 
     @Override
     public String toString() {
-        return "IceCreamCar {" +
-                "\n\t" + priceList.toString() +
-                "\n\t" + stock +
-                "\n\tProfit = " + profit +
-                "\n}";
+        return "\uD83D\uDE9A Ice Cream Car Infos" +
+                "\n\t\uD83C\uDFF7 " + priceList.toString() +
+                "" + stock +
+                "\n\t\uD83D\uDCB2 Profit = " + profit;
     }
 }
